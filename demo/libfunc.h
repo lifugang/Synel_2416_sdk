@@ -290,6 +290,7 @@ int gsmString2Bytes(const char* pSrc, unsigned char* pDst, int nSrcLength);
  //update mcu
   int update_mcu(char *file,int mode);
   int check_mcu_update(void);
+  int device_power_off();
 /*========================================================================
                     Print Set
 ==========================================================================*/
