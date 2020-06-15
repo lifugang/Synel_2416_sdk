@@ -66,7 +66,8 @@ LIBSRC=	./crypt/crypt.c 	\
 	./serial/spi/spilib.c	\
 	./serial/spi/spi_s3c2416.c	\
 	./key/key.c	\
-	./power/power.c		
+	./power/power.c	 \
+	./bsqpcir40u/pcir40u.c		
 endif		
 
 

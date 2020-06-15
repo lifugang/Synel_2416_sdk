@@ -23,4 +23,10 @@ int write_port (int port, char * data, int datalength);
 void close_port (int port);
 int clear_port(int port);
 
+
+int get_uard_fd( int port );
+int UartWrite( int comfd, unsigned char *iBuf, int iLen );
+int UartRead( int comfd, unsigned char *oBuf, int oLen, unsigned int oTime );
+
+
 #endif /* SERIAL_H_ */
