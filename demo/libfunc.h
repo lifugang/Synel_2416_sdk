@@ -327,6 +327,11 @@ int gsmString2Bytes(const char* pSrc, unsigned char* pDst, int nSrcLength);
  ========================================================================*/
 int get_battery_power_status();
 int get_battery_power_energy(); //add by aduo 2014.7.28
+
+int MLX90621_RecvData_Event( int port );
+
 }
+
+
 
 #endif 

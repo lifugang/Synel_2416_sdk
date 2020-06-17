@@ -14,7 +14,7 @@ LIBPATH=../
 LDFLAGS=-I$(LIBPATH) -L$(LIBPATH) -lfunc
 
 TARGET=a.out
-SRC=main_power_off.cpp
+SRC=main.cpp
 
 all: $(TARGET)
 target: $(TARGET) 
