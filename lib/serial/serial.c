@@ -21,7 +21,7 @@ int open_port (int port, int baudrate, int databit,
                    char *stopbit, char parity){
 	int err_code;
 
-    if (port < 10){
+    if (port < 10 || port >= 30){
     	err_code = uart_open_and_setattr(port,baudrate,databit,stopbit,parity);
     }else{
     	err_code = spi_open(port,baudrate);

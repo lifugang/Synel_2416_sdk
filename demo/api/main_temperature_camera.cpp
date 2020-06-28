@@ -9,9 +9,12 @@
 
 int main(int argc, char *argv[])
 {
-	int port = 3;
+	int port = 3; // if usb module， please set port to 30+port
 	int cur_temp = -1;
-	
+
+	port = 30 + 0;// mean /dev/ttyUSB0
+//	port = 30 + 1;// mean /dev/ttyUSB1
+
 	while(true)
 	{
 		cur_temp = MLX90621_RecvData_Event( port );

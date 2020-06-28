@@ -71,7 +71,7 @@ typedef enum _TWorkMode {_TERMINAL, _SERVER} TWorkMode;
 /* data packet */
 typedef char TPackage[MAXLENGTH];
 
-#define MAXCOM 20
+#define MAXCOM 40
 extern unsigned char _begin_putch[MAXCOM], _begin_getch[MAXCOM]; /* default : terminal mode */
 
 typedef struct __TData {

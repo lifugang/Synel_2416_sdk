@@ -10,7 +10,7 @@
 
 #include "../version.h"
 
-#define MAXCOM 20
+#define MAXCOM 40
 #define ERROR	-1  /**< Ê§°Ü\r\n ERROR*/
 #define OK 1   /**< ³É¹¦\r\n SUCCESS*/
 
