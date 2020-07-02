@@ -12,7 +12,7 @@
 //#define _2410
 #define _2416
 
-#define sdk_version "sdk6.1.9"		// 原(2020/02/24 power.c文件增加关机指令接口 device_power_off) 同步到该版本
+#define sdk_version "sdk6.2.0"		// 修正demo/finger 编译报错问题, 增加相关头文件, 增加函数声明, 同时编译时需要增加 -lrt
 
 
 #endif /* VERSION_H_ */

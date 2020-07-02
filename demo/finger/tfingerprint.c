@@ -10,7 +10,7 @@
 
 
 //////////////////////////////////////////////////////////////////////////
-int _input_number(char* szPrompt, int dwDefault)
+int _input_number(const char* szPrompt, int dwDefault)
 {
 	int	vKey, vCnt = 0;
 	char vStr[16] = {0}, *vStr2;

@@ -1,6 +1,8 @@
 #ifndef _LIBFUNC_H
 #define _LIBFUNC_H 
 #include <time.h>
+#include <sys/time.h>
+
 
 #define RTC_DISABLE		0
 #define RTC_ENABLE		1
@@ -213,6 +215,7 @@ int gsmString2Bytes(const char* pSrc, unsigned char* pDst, int nSrcLength);
  FILE * GetFpList();
  int UninitFp(void);
  long FpDataOneToNMatch(char *FileName);
+ int GetFpQuality();
 
 
 /*========================================================================

@@ -100,7 +100,7 @@ int performAfterScan(int ScanNum)
 }
 
 //////////////////////////////////////////////////////////////////////////
-int _input_number(char* szPrompt, int dwDefault)
+int _input_number(const char* szPrompt, int dwDefault)
 {
 	int	vKey, vCnt = 0;
 	char vStr[16] = {0}, *vStr2;
@@ -223,7 +223,7 @@ int main(int argc, char *argv[])
 #if defined _2410
 			flag=Enroll( nID,fingernum,"/dev/shm/zw.bmp","./note/admi/finger/");
 #elif defined _2416
-			flag=Enroll( nID,fingernum,"/tmp/zw.bmp","./note/admi/finger/");
+			flag=Enroll( nID,fingernum,(char *)"/tmp/zw.bmp", (char *)"./note/admi/finger/");
 #endif
 			if(flag != TRUE)
 			{
@@ -237,9 +237,9 @@ int main(int argc, char *argv[])
 			printf("===== 1:N Matching\n");
 			while(1){
 #if defined _2410
-				nRet = OneToNMatch("/dev/shm/zw.bmp");
+				nRet = OneToNMatch((char *)"/dev/shm/zw.bmp");
 #elif defined _2416
-				nRet = OneToNMatch("/tmp/zw.bmp");
+				nRet = OneToNMatch((char *)"/tmp/zw.bmp");
 #endif
 				if(nRet > 0)
 				{
@@ -252,12 +252,12 @@ int main(int argc, char *argv[])
 		case 3://1:1 Matching
 			printf("===== 1:1 Matching\n");
 			sprintf(nID,"%d",_input_number("Input staff_No:", 10));
-			LoadFingerTemplate(nID,"./note/admi/finger/");
+			LoadFingerTemplate(nID, (char *)"./note/admi/finger/");
 			while(1){
 #if defined _2410
-				nRet=OneToOneMatch(nID,"/dev/shm/zw.bmp");
+				nRet=OneToOneMatch(nID, (char *)"/dev/shm/zw.bmp");
 #elif defined _2416
-				nRet=OneToOneMatch(nID,"/tmp/zw.bmp");
+				nRet=OneToOneMatch(nID, (char *)"/tmp/zw.bmp");
 #endif
 				if(nRet>0)
 				{
@@ -269,22 +269,22 @@ int main(int argc, char *argv[])
 			break;
 		case 4://load fingerprint data
 			printf("===== load fingerprint data\n");
-			load_finger("./note/admi/finger/");
+			load_finger((char *)"./note/admi/finger/");
 			break;
 		case 5://Delete
 			printf("===== Delete\n");
-			sprintf(nID,"%d",_input_number("Input staff_No:", 10));
-			fingernum=_input_number("Input Finger No:", 10);
+			sprintf(nID,"%d",_input_number((char *)"Input staff_No:", 10));
+			fingernum=_input_number((char *)"Input Finger No:", 10);
 
 			DeleteFpOne(nID,fingernum);
-			DeleteFPFlash(nID,fingernum,"./note/admi/finger/");
+			DeleteFPFlash(nID,fingernum, (char *)"./note/admi/finger/");
 			break;
 		case 6:
 			printf("===== Delete one all\n");
-			sprintf(nID,"%d",_input_number("Input staff_No:", 10));
+			sprintf(nID,"%d",_input_number((char *)"Input staff_No:", 10));
 
 			DeleteFpOneAll(nID);
-			DeleteFpOneAllFALSE(nID,"./note/admi/finger/");
+			DeleteFpOneAllFALSE(nID, (char *)"./note/admi/finger/");
 			break;
 		case 7://DeleteAll
 			printf("===== DeleteAll\n");
