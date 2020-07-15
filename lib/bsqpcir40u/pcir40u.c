@@ -83,3 +83,55 @@ int MLX90621_RecvData_Event( int port )
 	
 }
 
+
+// 波特率:9600,数据格式:0FFH,温度H,温度L,校验和;温度分辨率0.1度,校验和为高低字节的异或值,
+// “FF 01 60 61”  0FFH,是数据起始; 01是温度H（高字节); 60是温度L（低字节);
+// 61是01和60的异或值(校验和来的);(FF:是数据起始；0160是十六进制转为10进制是所得35.2度；61是01和60的异或值)。里面写有温度分辨率是0.1
+//<---FF 01 6E 6F
+
+static int dt8861_fd = -1;
+
+int DT8861_RecvData_Event( int port )
+{
+	unsigned char	buf[12] = "";
+
+	unsigned char	*p = NULL;
+	int num = 0, cnt = 0, tmout = 80;
+	int read_length = 0, total_length = 0;
+	int baud = 9600; // // fix baud is 4800 for weds, 9600 for synel
+
+	if(dt8861_fd <= 0)
+	{
+		dt8861_fd = get_uard_fd(port);
+		if(dt8861_fd <= 0)
+		{
+			open_port(port, baud, 8, "1", 'N');			
+			dt8861_fd = get_uard_fd(port);
+			if(dt8861_fd <= 0)
+			return -1;
+		}
+	}
+	
+	read_length = 4;
+	p = buf;	
+	num = UartRead( dt8861_fd, p, read_length, tmout );	
+	if(num == read_length && *p == 0xFF && 
+		*(p + 3) == (*(p + 1) ^ *(p + 2)))
+	{	
+		leeDebugData(p, num, num, 2);
+		TEMP_HIGH_Value = (*(p + 1) << 8) + *(p + 2);
+		TEMP_HIGH_Value *= 10;
+
+		return TEMP_HIGH_Value;		
+	}
+
+	TEMP_HIGH_Value = -3;
+
+	return TEMP_HIGH_Value;
+	
+}
+
+
+
+
+

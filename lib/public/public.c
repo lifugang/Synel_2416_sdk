@@ -1458,3 +1458,33 @@ int RelativeTimer(struct timespec refertime, long int microff)
 	return 0;
 }
 
+int leeDebugData( unsigned char *blkData, unsigned int dataLen, unsigned int lineLen, unsigned int sendRecvFlag )
+{
+	unsigned int i = 0;
+
+	lineLen = lineLen > dataLen ? dataLen : lineLen;
+
+	if ( sendRecvFlag == 1 )
+	{
+		printf( "\n===>" );
+	}else if ( sendRecvFlag == 2 )
+	{
+		printf( "\n<---" );
+	}
+
+	for ( i = 0; i < dataLen; i++ )
+	{
+		if ( i && i % lineLen == 0 )
+		{
+			printf( "\n" );
+		}
+
+		printf( "%02X ", blkData[i] );
+	}
+
+	printf( "\n" );
+
+	return(0);
+}
+
+

@@ -64,5 +64,7 @@ int rightsub(char *dst,const char *src,int postion,int len,char mask);
 int leftsub( char *dst,const char *src,int postion,int len,char mask);
 int FormatDateTime(const char * format,char *result);
 int RelativeTimer(struct timespec refertime, long int microff);
+int leeDebugData( unsigned char *blkData, unsigned int dataLen, unsigned int lineLen, unsigned int sendRecvFlag );
+
 
 #endif

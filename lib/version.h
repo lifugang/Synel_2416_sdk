@@ -12,7 +12,8 @@
 //#define _2410
 #define _2416
 
-#define sdk_version "sdk6.2.0"		// 修正demo/finger 编译报错问题, 增加相关头文件, 增加函数声明, 同时编译时需要增加 -lrt
+
+#define sdk_version "sdk6.2.1"		// 支持DT-8861 体温枪
 
 
 #endif /* VERSION_H_ */

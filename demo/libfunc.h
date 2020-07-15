@@ -332,6 +332,7 @@ int get_battery_power_status();
 int get_battery_power_energy(); //add by aduo 2014.7.28
 
 int MLX90621_RecvData_Event( int port );
+int DT8861_RecvData_Event( int port );
 
 }
 

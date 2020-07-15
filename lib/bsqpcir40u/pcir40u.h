@@ -3,6 +3,10 @@
 
 
 int MLX90621_RecvData_Event( int port );
+int DT8861_RecvData_Event( int port );
+
+
+
 
 #endif
 

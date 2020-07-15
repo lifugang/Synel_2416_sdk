@@ -17,9 +17,12 @@ int main(int argc, char *argv[])
 
 	while(true)
 	{
-		cur_temp = MLX90621_RecvData_Event( port );
+//		cur_temp = MLX90621_RecvData_Event( port );
+		cur_temp = DT8861_RecvData_Event( port );
 		if(cur_temp == -1) printf("uart init failed\n");
-		else if(cur_temp == -3) printf("get temperature failed\n");
+		else if(cur_temp == -3) {
+//			printf("get temperature failed\n");
+		}
 		else{
 			printf("current temperature is = %d.%d\n", cur_temp/100, cur_temp%100);
 		}
