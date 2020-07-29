@@ -13,7 +13,7 @@
 #define _2416
 
 
-#define sdk_version "sdk6.2.1"		// 支持DT-8861 体温枪
+#define sdk_version "sdk6.2.2"		// 支持模块固件在线升级
 
 
 #endif /* VERSION_H_ */

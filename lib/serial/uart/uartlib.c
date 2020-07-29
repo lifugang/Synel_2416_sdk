@@ -829,5 +829,6 @@ int uart_close(int port)
     {
         return ERROR;
     }
+	serial_fd[port] = -1; // must reset to -1
     return OK;
 }

@@ -108,6 +108,7 @@ int UartWrite( int comfd, unsigned char *iBuf, int iLen )
 	if ( comfd <= 0 || !iBuf || iLen <= 0 )
 		return(-1);
 
+//if(iLen<30)
 //	leeDebugData(iBuf, iLen, iLen, 1);
 
 	FD_ZERO( &write_fd );
